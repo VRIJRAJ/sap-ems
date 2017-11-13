@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Employees Management System</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script>
+    $.get("https://bnnp1943041115trial.hanatrial.ondemand.com/public/ems/admin/query/gettingEmployee.xsjs", function(response) { 
+       // document.getElementById("E_NAME").value=response.results[1].fname+" "+response.results[2].lname;
+        var name=response.results[0].fname +" " +response.results[0].lname;
+        console.log(response.results[0].mail);
+        
+        document.getElementById("E_Name").innerHTML=name;
+        document.getElementById("EName").innerHTML=name;
+        document.getElementById("about").innerHTML=response.results[0].about;
+        document.getElementById("domain").innerHTML=response.results[0].domain;
+        
+        document.getElementById("mobile").innerHTML=response.results[0].mobile;
+        document.getElementById("mail").innerHTML=response.results[0].mail;
+        document.getElementById("address").innerHTML=response.results[0].address+
+        " "+response.results[0].city+" "+response.results[0].state+" "+response.results[0].country;
+        document.getElementById("hire_date").innerHTML=response.results[0].hire_date;
+        document.getElementById("sch_name").innerHTML=response.results[0].sch_name;
+        document.getElementById("sch_info").innerHTML=response.results[0].sch_info;
+        document.getElementById("clg_name").innerHTML=response.results[0].clg_name;
+        document.getElementById("clg_info").innerHTML=response.results[0].clg_info;
+        document.getElementById("skills").innerHTML=response.results[0].skills;
+        //document.getElementById("about").innerHTM=about;
+        //document.write(response.results[1].fname);
+        //document.write(response.results[2].lname);
+    });
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark indigo">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">EMS | Admin</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul class="navbar-nav mr-auto mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="manageEmployee.html">Manage Employees</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="activeTaskAll.html">Manage Tasks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container" >
+        <div class="row"> 
+            <div class="col-md-12">
+                <br>
+                <h2>Back to Manage Employees</h2>
+                <hr>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+           <div class="col-md-12">
+               <div class="container-fluid">
+                   <div class="row">
+                       <div class="col-md-12 z-depth-1" >
+                           <div class="container-fluid" style="padding:0">
+                               <div class="row" style="padding:0">
+                                   <div class="col-md-3" style="background-color:#eeeeee  ">
+                                       <br>
+                                       <br>
+                                       <center>
+                                            <img class="img-responsive z-depth-1" width="70%" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png">
+                                            <hr>
+                                            <h5 id="E_Name"></h5> <h5 id="dob"></h5>
+                                            <p style="font-size:90%" id="domain"></p>
+                                            <hr>
+                                            </center>
+                                            <br><br>
+                                            <h6>General Info</h6>
+                                            <hr>
+                                            <p style="margin:0;font-size:90%"> <span><i class="fa fa-id-badge" aria-hidden="true"></i></span> <span id="mobile"></span></p>
+                                            <p style="margin:0;font-size:90%"> <span><i class="fa fa-building-o" aria-hidden="true"></i></span> <span id="mail"></span></p>
+                                            <p style="margin:0;font-size:90%"> <span><i class="fa fa-address-book" aria-hidden="true"></i></span> <span id="address"></span></p>
+                                            
+                                            <br><br>
+                                            <h6>Social Info</h6>
+                                            <hr>
+                                            <a href="">Linkedin</a><br>
+                                            <a href="">Twitter</a><br>
+                                            <a href="">GitHub</a><br>
+                                            <a href="">Facebook</a><br>
+                                            <p id="mobile" style="margin:0;font-size:90%"></p>
+                                            <p id="mail" style="margin:0;font-size:90%"></p>
+                                            <p id="address" style="margin:0;font-size:90%"></p>
+                                       
+                                       
+                                   </div>
+                                   <div class="col-md-9">
+                                       <br>
+                                       <br>
+                                       <h5 style="color:#0d47a1"><b><i class="fa fa-drivers-license-o" aria-hidden="true"></i> About <span id="EName"></span> ( Date of Joining: <span id="hire_date"></span> ) </b></h5>
+                                       <hr>
+                                       <p id="about"></p>
+                                       
+                                       <br>
+                                       <br>
+                                       
+                                       <div class="container-fluid">
+                                           <div class="row">
+                                               <div class="col-md-7" style="padding:0">
+                                                   <h5 style="color:#0d47a1"><b><i class="fa fa-id-card" aria-hidden="true"></i> Education</b></h5>
+                                                   <hr>
+                                                   
+                                                   <h6 style="color:#00bfa5"><span><i class="fa fa-institution" aria-hidden="true"></i></span> <b>School Info: </b> <span id="sch_name"></span></h6>
+                                                   <hr>
+                                                   <p id="sch_info"></p>
+                                                   
+                                                   <br>
+                                                   
+                                                   <h6 style="color:#00bfa5"><span><i class="fa fa-institution" aria-hidden="true"></i></span> <b>College Info: </b> <span id="clg_name"></span></h6>
+                                                   <hr>
+                                                   <p id="clg_info"></p>
+                                                   
+                                               </div>
+                                               <div class="col-md-5">
+                                                    <h5 style="color:#0d47a1"><b><i class="fa fa-industry" aria-hidden="true"></i> Skills Sets</b></h5>
+                                                    <hr>
+                                                    <p id="skills"></p>
+                                               </div>
+                                           </div>
+                                       </div>
+                                      
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+        </div>
+    </div>
+    
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script>
+$.get("https://bnnp1943041115trial.hanatrial.ondemand.com/public/ems/admin/query/gettingEmployee.xsjs", function(response) { 
+    document.write(response.results[0].id);
+    document.write(response.results[1].fname);
+    document.write(response.results[2].lname);
+});
+</script>
+
+<h1 id="data"></h1>
